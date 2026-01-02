@@ -47,7 +47,8 @@ int main(void)
   textEmitter.unsubscribe(textMonitorId);
   textEmitter.emit("i like trains");
 
-  
+  textMonitorId = textEmitter.subscribe(monitor);
+  textEmitter.emit("i like trains");
   c = monitor->getCounter(); 
   std::cout << c << std::endl;
   

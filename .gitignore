@@ -1,2 +1,3 @@
 main
 *.o
+.clang-format
