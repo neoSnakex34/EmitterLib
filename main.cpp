@@ -33,15 +33,21 @@ int main(void)
   Emitter<std::string> textEmitter;
   auto monitor = std::make_shared<Monitor>();
 
-  textEmitter.subscribe(monitor);
+  auto textMonitorId = textEmitter.subscribe(monitor);
 
   
   int c = monitor->getCounter();
 
   std::cout << c << std::endl;
   textEmitter.emit("hello world!");
+
+  c = monitor->getCounter(); 
+  std::cout << c << std::endl;
+
+  textEmitter.unsubscribe(textMonitorId);
   textEmitter.emit("i like trains");
 
+  
   c = monitor->getCounter(); 
   std::cout << c << std::endl;
   
