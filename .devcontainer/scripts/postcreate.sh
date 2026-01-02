@@ -33,7 +33,7 @@ mv helix*/runtime ~/.config/helix/
 rm ./helix* -rf 
 
 echo '
-theme="bogster light"
+theme="bogster"
 ' > ~/.config/helix/config.toml
 echo -e "bogster theme set\n"
 
@@ -43,5 +43,8 @@ command = "clangd"
 root_file = "CMakeLists.txt"
 filetypes = ["c", "cpp"]' > ~/.config/helix/clangd.toml
 echo -e "lsp for c/cpp set\n\n"
+
+echo "setting up clang format style in ~"
+cp ./.clang-format ~/
 
 echo "config complete!"
