@@ -5,6 +5,7 @@
 #include <memory>
 #include <vector>
 #include <unordered_map>
+
 template <typename S> class Listener
 {
   public:
@@ -52,6 +53,5 @@ template <typename T> class Emitter
 
   private:
     std::unordered_map<SubscriptionId, std::weak_ptr<Listener<T>>> subscribers;
-    // std::vector<std::weak_ptr<Listener<T>>> subscribers;
     SubscriptionId next_id{0};
 };

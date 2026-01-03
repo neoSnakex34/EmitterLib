@@ -10,9 +10,11 @@ class Monitor : public Listener<std::string> {
 
   Monitor()
     : counter{0} {};
-
+  Monitor(int init_c)
+    : counter{init_c} {};
+    
   void onEvent(const std::string& recieved) override {
-    std::cout << "i recieved: " << recieved << std::endl;
+    std::cout << "my counter is: " << counter << " I recieved: " << recieved << std::endl;
     ++counter;
     }
 
@@ -32,9 +34,10 @@ int main(void)
 
   Emitter<std::string> textEmitter;
   auto monitor = std::make_shared<Monitor>();
-
+  auto monitor2 = std::make_shared<Monitor>(10);
+  
   auto textMonitorId = textEmitter.subscribe(monitor);
-
+  auto monitor2Id = textEmitter.subscribe(monitor2);
   
   int c = monitor->getCounter();
 
